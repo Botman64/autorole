@@ -12,6 +12,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "discord.js": "^14.18.0"
+    "discord.js": "^14.18.0",
+    "sqlite3": "^5.1.6"
   }
 }

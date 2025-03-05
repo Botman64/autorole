@@ -87,6 +87,7 @@ client.on('interactionCreate', async interaction => {
   const guildId = interaction.guild.id;
 
   if (subCommand !== 'list' && subCommand !== 'add' && subCommand !== 'remove') return;
+  if (!interaction.member.permissions.has(PermissionFlagsBits.Administrator)) return interaction.reply({ content: 'You need administrator permissions to use this command.', flags: MessageFlags.Ephemeral });
 
   if (subCommand === 'list') {
     try {

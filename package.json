@@ -1,0 +1,17 @@
+{
+  "name": "autorole",
+  "version": "1.0.0",
+  "description": "discord js v14 - Very simple auto role bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js"
+  },
+  "keywords": [],
+  "author": "botman",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "discord.js": "^14.18.0"
+  }
+}

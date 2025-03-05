@@ -112,7 +112,7 @@ client.on('interactionCreate', async interaction => {
     ? 'INSERT OR IGNORE INTO autoroles (guild_id, role_id) VALUES (?, ?)'
     : 'DELETE FROM autoroles WHERE guild_id = ? AND role_id = ?';
   
-  const params = add ? [guildId, roleId] : [guildId, roleId];
+  const params = [guildId, roleId];
   
   db.run(query, params, function(err) {
     if (err) return interaction.reply({ content: 'Database error occurred.', flags: MessageFlags.Ephemeral });

@@ -1,10 +1,10 @@
 require('dotenv').config();
-const Discord = require("discord.js");
+const { Client, GatewayIntentBits, Collection, REST, Routes } = require('discord.js');
 const guilds = require("./config.json");
 
-const client = new Discord.Client({ intents: [
-  Discord.Intents.FLAGS.GUILDS,
-  Discord.Intents.FLAGS.GUILD_MEMBERS
+const client = new Client({ intents: [
+  GatewayIntentBits.Guilds,
+  GatewayIntentBits.GuildMembers
 ] });
 
 client.on('ready', () => {

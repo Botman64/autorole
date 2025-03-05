@@ -87,6 +87,7 @@ client.on('interactionCreate', async interaction => {
   const guildId = interaction.guild.id;
 
   if (subCommand !== 'list' && subCommand !== 'add' && subCommand !== 'remove') return;
+  if (!interaction.member.permissions.has(PermissionFlagsBits.Administrator)) return interaction.reply({ content: 'You need administrator permissions to use this command.', flags: MessageFlags.Ephemeral });
 
   if (subCommand === 'list') {
     try {
@@ -112,7 +113,7 @@ client.on('interactionCreate', async interaction => {
     ? 'INSERT OR IGNORE INTO autoroles (guild_id, role_id) VALUES (?, ?)'
     : 'DELETE FROM autoroles WHERE guild_id = ? AND role_id = ?';
   
-  const params = add ? [guildId, roleId] : [guildId, roleId];
+  const params = [guildId, roleId];
   
   db.run(query, params, function(err) {
     if (err) return interaction.reply({ content: 'Database error occurred.', flags: MessageFlags.Ephemeral });
